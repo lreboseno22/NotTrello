@@ -50,7 +50,6 @@ function renderTask(task){
 function deleteTodo(event) {
     const task_id = event.target.id;
     const deleteurl = `http://localhost:9003/tasks/${task_id}`
-    // console.log(task_id)
     const options = {
       method: "DELETE"
     }
@@ -92,12 +91,15 @@ function darkFunction(){
   const toggleBtn2 = document.getElementById('widget-light2');
   const addBtn = document.getElementById('add-btn');
   const header = document.getElementById('task-man')
+  const offCanvas = document.getElementById('offcanvasWithBothOptions')
+  const modal = document.getElementById('modal-task')
   el.classList.toggle('dark-mode')
   toggleBtn.classList.toggle('widget-dark');
   toggleBtn2.classList.toggle('widget-dark');
   addBtn.classList.toggle('widget-dark2');
   header.classList.toggle('task-man-dark')
-
+  offCanvas.classList.toggle('bg-dark')
+  modal.classList.toggle('bg-dark');
   if(!toggle){
     toggle = true;
     btnImage.src = "moon-fill.svg"

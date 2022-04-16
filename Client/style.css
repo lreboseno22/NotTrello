@@ -29,7 +29,7 @@ li {
     background-color: #cfdbd5!important;
 }
 .item:hover {
-    border: 3px solid #fcca46!important;
+    border: 2px solid black !important;
 }
 
 .deleteBtn:hover {
@@ -97,4 +97,12 @@ p {
 
 #add-btn {
     background-color: #345995;
+}
+
+#add-btn:hover {
+    background-color: #43A4CE;
+}
+
+.bg-dark {
+    color: white;
 }
