@@ -28,7 +28,7 @@ function renderTask(task){
     // Add the task_id to the description to reference later
     description.setAttribute('id', task.task_id);
     description.innerText = task.name;
-    listItem.setAttribute('class', 'p-3 border bg-light');
+    listItem.setAttribute('class', 'p-3 border shadow-sm, item');
     // listItem.setAttribute('draggable', 'true');
     // create a delete button El
     const deleteBtn = document.createElement("button");
@@ -81,3 +81,32 @@ function createTask(event){
     renderTask(data.data)
   })
 }
+
+// DARK MODE
+let toggle = false;
+
+function darkFunction(){
+  const el = document.body
+  const btnImage = document.getElementById('img');
+  const toggleBtn = document.getElementById('widget-light');
+  const toggleBtn2 = document.getElementById('widget-light2');
+  const addBtn = document.getElementById('add-btn');
+  const header = document.getElementById('task-man')
+  el.classList.toggle('dark-mode')
+  toggleBtn.classList.toggle('widget-dark');
+  toggleBtn2.classList.toggle('widget-dark');
+  addBtn.classList.toggle('widget-dark2');
+  header.classList.toggle('task-man-dark')
+
+  if(!toggle){
+    toggle = true;
+    btnImage.src = "moon-fill.svg"
+  }
+  else {
+    toggle = false;
+    btnImage.src = "brightness-high-fill.svg"
+  }
+}
+
+
+

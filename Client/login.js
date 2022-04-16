@@ -1,26 +1,30 @@
-const loginBtn = document.getElementById('login');
-const signupBtn = document.getElementById('signup');
+const inputs = document.querySelectorAll(".input");
 
-loginBtn.addEventListener('click', (e) => {
-	let parent = e.target.parentNode.parentNode;
-	Array.from(e.target.parentNode.parentNode.classList).find((element) => {
-		if(element !== "slide-up") {
-			parent.classList.add('slide-up');
-		}else{
-			signupBtn.parentNode.classList.add('slide-up');
-			parent.classList.remove('slide-up');
-		}
-	});
+function addClass() {
+  let parent = this.parentNode.parentNode;
+  parent.classList.add("focus");
+}
+
+function removeClass() {
+  let parent = this.parentNode.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", addClass);
+  input.addEventListener("blur", removeClass);
 });
 
-signupBtn.addEventListener('click', (e) => {
-	let parent = e.target.parentNode;
-	Array.from(e.target.parentNode.classList).find((element) => {
-		if(element !== "slide-up") {
-			parent.classList.add('slide-up');
-		}else{
-			loginBtn.parentNode.parentNode.classList.add('slide-up');
-			parent.classList.remove('slide-up');
-		}
-	});
-});
+const loginForm = document.getElementById('login');
+const signupForm = document.getElementById('signup');
+function toggleFormSignUp(){
+    loginForm.classList.add('hide')
+    signupForm.classList.remove('hide')
+}
+
+function toggleFormLogin(){
+    loginForm.classList.remove('hide')
+    signupForm.classList.add('hide')
+}
